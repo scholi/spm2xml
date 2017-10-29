@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta encoding="utf8"/>
+
+<script src="js/jquery-3.2.1.js"></script>
+<script src="js/FileSaver.js"></script>
+<script src="js/spm.js"></script>
+<script type="text/javascript">
+
+</script>
+
+<title>Template</title>
+<style type="text/css">
+#spm-file {
+    background-color: lightblue;
+}
+#xml-file {
+    background-color: orange;
+}
+div.box {
+    margin: 10px;
+    padding: 10px;
+}
+</style>
+</head>
+
+<body>
+<div id="App">
+<div id="spm-file" class="box">
+<h2>SPM file</h2>
+<input type="file" id="spmfile" accept=".spm" onChange="readspm()" />
+<canvas id="spmcanvas"></canvas>
+</div>
+<div id="xml-file" class="box">
+<h2>XML file</h2>
+<input type="file" id="xmlfile" accept=".xml" onChange="readxml()"/>
+<select id="direction" onChange="readchannels()"></select>
+<select id="channel" onChange="readchannel()"></select>
+<canvas id="xmlcanvas"></canvas>
+</div>
+<div>
+<input type="button" value="Update channel of xml from spm" onclick="convert()"/>
+</div>  
+</div>
+</body>
+</html>
