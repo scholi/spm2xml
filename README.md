@@ -1,10 +1,15 @@
 # spm2xml
-XML fileformat is used to save AFM data and can be easily read by Gwyddion. Unfortunatela, Gwyddion cannot save this file format.
+XML fileformat is used to save AFM data and can be easily read by Gwyddion. Unfortunately, Gwyddion cannot save this file format.
 This small script allows you to incorporate the data of a .spm fileformat into an existing xml.
 
 The application works only locally and your data are not transmitted to any server. This also means that you can use this application offline.
 
 If you don't want to download it, you can test it here: https://scholi.github.io/spm2xml/
+
+## Requirement
+Modern web browser. Was tested with Chrome 61.0.3163.100.
+
+The xml reading do not work with Internet Explorer!
 
 ## Documentation
 How it works:
