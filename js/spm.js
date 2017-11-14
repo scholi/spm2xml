@@ -62,10 +62,12 @@ function readspm(){
         console.log("SIZE",size);
         for(i+=3; f[i]!='end of header'; i++){}
         var buffer = new ArrayBuffer(4*size.x*size.y);
+        var dview = new DataView(buffer);
         var dmin = parseFloat(f[i+1]);
         var dmax = parseFloat(f[i+1]);
         for(var j=0;j<size.x*size.y;j++){
             var value = parseFloat(f[i+1+j]);
+            dview.setFloat32(j*4,value, true)
             if(value<dmin) dmin=value;
             if(value>dmax) dmax=value;
         }
