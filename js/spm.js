@@ -65,11 +65,13 @@ function readspm(){
         var dview = new DataView(buffer);
         var dmin = parseFloat(f[i+1]);
         var dmax = parseFloat(f[i+1]);
-        for(var j=0;j<size.x*size.y;j++){
-            var value = parseFloat(f[i+1+j]);
-            dview.setFloat32(j*4,value, true)
-            if(value<dmin) dmin=value;
-            if(value>dmax) dmax=value;
+        for(var y=0;y<size.y;y++){
+            for(var x=0;x<size.x;x++){
+                var value = parseFloat(f[i+1+size.x*y+x]);
+                dview.setFloat32((size.x*(size.y-y-1)+x)*4,value, true)
+                if(value<dmin) dmin=value;
+                if(value>dmax) dmax=value;
+            }
         }
         b64s = base64ArrayBuffer(buffer);
         var c = $('#spmcanvas')[0];
